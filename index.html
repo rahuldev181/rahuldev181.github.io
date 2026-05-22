@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahul Dev | AI/ML Engineer & Computer Engineer</title>
+    <meta name="description" content="Rahul Dev - Fourth-year Computer Engineering student specializing in AI, Machine Learning, and Database Systems.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Neural Network Canvas Background -->
+    <canvas id="neural-bg"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">RD<span class="logo-dot">.</span></a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#contact" class="nav-cta">Get In Touch</a>
+            <button class="nav-toggle" id="nav-toggle">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <p class="hero-greeting">Hello, I'm</p>
+                <h1 class="hero-name">Rahul Dev</h1>
+                <h2 class="hero-title">
+                    <span class="typing-text" id="typing-text"></span><span class="cursor">|</span>
+                </h2>
+                <p class="hero-description">
+                    Bridging <strong>Machine Learning</strong> with <strong>Software Engineering</strong> — a Computer Engineering student building intelligent systems that solve real-world problems in healthcare and beyond.
+                </p>
+                <div class="hero-tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">TensorFlow</span>
+                    <span class="tag">Machine Learning</span>
+                    <span class="tag">Computer Vision</span>
+                    <span class="tag">Database Systems</span>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="ai-brain">
+                    <div class="brain-ring ring-1"></div>
+                    <div class="brain-ring ring-2"></div>
+                    <div class="brain-ring ring-3"></div>
+                    <div class="brain-core"></div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title fade-in">About <span class="highlight">Me</span></h2>
+            <div class="about-grid">
+                <div class="about-text fade-in">
+                    <p>I am a <strong>Kathmandu-based Computer Engineering student</strong> in my fourth year at Kantipur Engineering College, with deep expertise in <strong>Machine Learning and Database Systems</strong>. My work focuses on building end-to-end technological solutions — from deep learning-based medical image categorization to reliable relational database architectures.</p>
+                    <p>I believe AI should solve <em>human</em> problems. Whether it's detecting pneumonia from chest X-rays with 96% accuracy or engineering secure database systems for complex organizations, I stay grounded in building technology that creates real impact.</p>
+                    <blockquote>"I don't just build models; I build systems that work when accuracy matters most."</blockquote>
+                </div>
+                <div class="about-stats fade-in">
+                    <div class="stat-card">
+                        <span class="stat-number">4th</span>
+                        <span class="stat-label">Year BCE Student</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">96%</span>
+                        <span class="stat-label">Model Accuracy</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">Technical Projects</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">AI</span>
+                        <span class="stat-label">Focused Research</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-info fade-in">
+                <div class="info-item"><span class="info-label">Name</span><span class="info-value">Rahul Dev</span></div>
+                <div class="info-item"><span class="info-label">Based</span><span class="info-value">Teku, Kathmandu, Nepal</span></div>
+                <div class="info-item"><span class="info-label">Degree</span><span class="info-value">BCE (In Progress) — Kantipur Engineering College</span></div>
+                <div class="info-item"><span class="info-label">Focus</span><span class="info-value">AI/ML, Database Systems, Computer Vision</span></div>
+                <div class="info-item"><span class="info-label">Status</span><span class="info-value">Open to Opportunities</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section section-alt" id="skills">
+        <div class="container">
+            <h2 class="section-title fade-in">Technical <span class="highlight">Skills</span></h2>
+            <p class="section-subtitle fade-in">Full-stack technical capability from ML pipelines to database architecture.</p>
+            <div class="skills-grid">
+                <div class="skill-category fade-in">
+                    <h3 class="skill-category-title">Languages & Core</h3>
+                    <div class="skill-item">
+                        <div class="skill-header"><span>Python</span><span>Expert</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="95"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header"><span>SQL</span><span>Advanced</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="85"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header"><span>C++</span><span>Intermediate</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="70"></div></div>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3 class="skill-category-title">ML / AI Frameworks</h3>
+                    <div class="skill-item">
+                        <div class="skill-header"><span>TensorFlow / Keras</span><span>Advanced</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="88"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header"><span>OpenCV</span><span>Advanced</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="80"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header"><span>NumPy / Pandas</span><span>Advanced</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="85"></div></div>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3 class="skill-category-title">Databases & Tools</h3>
+                    <div class="skill-item">
+                        <div class="skill-header"><span>MySQL</span><span>Advanced</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="85"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header"><span>Git / GitHub</span><span>Advanced</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="82"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header"><span>Jupyter / Colab</span><span>Expert</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="92"></div></div>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3 class="skill-category-title">Core Competencies</h3>
+                    <div class="skill-item">
+                        <div class="skill-header"><span>CNNs / Transfer Learning</span><span>Advanced</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="87"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header"><span>Database Architecture</span><span>Advanced</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="83"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header"><span>Scripting & Automation</span><span>Advanced</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="80"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <div class="container">
+            <h2 class="section-title fade-in">Featured <span class="highlight">Projects</span></h2>
+            <p class="section-subtitle fade-in">Real impact, measurable outcomes. Each project solves a genuine problem.</p>
+            <div class="projects-grid">
+                <div class="project-card fade-in">
+                    <div class="project-badge">Featured · Deep Learning · 2025</div>
+                    <h3 class="project-title">Pneumonia Detection System</h3>
+                    <p class="project-quote">"AI-powered diagnostics that achieve 96% accuracy on real medical images."</p>
+                    <div class="project-details">
+                        <h4>The Problem</h4>
+                        <p>Manual screening of chest X-rays is time-consuming and prone to human error. Early detection of pneumonia is critical for patient outcomes, especially in resource-limited healthcare settings.</p>
+                        <h4>The Solution</h4>
+                        <p>An automated Computer-Aided Diagnosis (CAD) system using a fine-tuned ResNet101V2 architecture with custom hierarchical classification layers. The model leverages transfer learning, Layer Normalization, Swish activation, and Dropout regularization for robust performance.</p>
+                    </div>
+                    <div class="project-tags">
+                        <span>Python</span><span>TensorFlow</span><span>ResNet101V2</span><span>OpenCV</span><span>Streamlit</span><span>Transfer Learning</span>
+                    </div>
+                    <div class="project-stats">
+                        <div class="project-stat"><span class="stat-val">96%</span><span class="stat-desc">Test Accuracy</span></div>
+                        <div class="project-stat"><span class="stat-val">44.7M</span><span class="stat-desc">Parameters</span></div>
+                        <div class="project-stat"><span class="stat-val">4,397</span><span class="stat-desc">Images Trained</span></div>
+                    </div>
+                    <a href="https://github.com/NOBODY-VI/Pneumonia-Detection-System" target="_blank" class="project-link">View on GitHub →</a>
+                </div>
+                <div class="project-card fade-in">
+                    <div class="project-badge">Database Systems · 2024</div>
+                    <h3 class="project-title">Industry Management System</h3>
+                    <p class="project-quote">"Digitally transforming complex organizational workflows through intelligent database design."</p>
+                    <div class="project-details">
+                        <h4>The Problem</h4>
+                        <p>Organizations struggle with fragmented data across departments — employees, projects, customers, and product flows tracked in disconnected systems leading to inefficiency and data integrity issues.</p>
+                        <h4>The Solution</h4>
+                        <p>A centralized relational database architecture using MySQL with proper Entity-Relationship modeling, 3NF normalization, and referential integrity constraints. Automates complex organizational tracking across multiple departments.</p>
+                    </div>
+                    <div class="project-tags">
+                        <span>MySQL</span><span>ERD Modeling</span><span>3NF Normalization</span><span>SQL</span><span>Database Design</span>
+                    </div>
+                    <div class="project-stats">
+                        <div class="project-stat"><span class="stat-val">3NF</span><span class="stat-desc">Normalized</span></div>
+                        <div class="project-stat"><span class="stat-val">5+</span><span class="stat-desc">Entity Types</span></div>
+                        <div class="project-stat"><span class="stat-val">100%</span><span class="stat-desc">Referential Integrity</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section section-alt" id="education">
+        <div class="container">
+            <h2 class="section-title fade-in">Education & <span class="highlight">Certifications</span></h2>
+            <div class="education-grid">
+                <div class="education-card fade-in">
+                    <div class="edu-icon">🎓</div>
+                    <div class="edu-period">2022 — Present</div>
+                    <h3 class="edu-title">Bachelor in Computer Engineering (BCE)</h3>
+                    <p class="edu-institution">Kantipur Engineering College</p>
+                    <p class="edu-affiliation">Affiliated to Tribhuvan University, IOE — Dhapakhel, Lalitpur, Nepal</p>
+                    <p class="edu-status">4th Year (In Progress)</p>
+                    <div class="edu-courses">
+                        <span>Artificial Intelligence</span>
+                        <span>DBMS</span>
+                        <span>Data Structures & Algorithms</span>
+                        <span>Operating Systems</span>
+                        <span>OOA&D</span>
+                    </div>
+                </div>
+                <div class="education-card fade-in">
+                    <div class="edu-icon">📜</div>
+                    <div class="edu-period">Certification</div>
+                    <h3 class="edu-title">Professional Python Programming</h3>
+                    <p class="edu-institution">Broadway Infosys</p>
+                    <p class="edu-affiliation">Kathmandu, Nepal</p>
+                    <div class="edu-courses">
+                        <span>Advanced Python</span>
+                        <span>Scripting</span>
+                        <span>Automation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interests Section -->
+    <section class="section" id="interests">
+        <div class="container">
+            <h2 class="section-title fade-in">Research <span class="highlight">Interests</span></h2>
+            <div class="interests-grid">
+                <div class="interest-card fade-in">
+                    <div class="interest-icon">🧠</div>
+                    <h3>AI & Machine Learning</h3>
+                    <p>Deeply interested in computer vision architectures, transfer learning optimizations, and deploying diagnostic neural networks for real-world impact.</p>
+                </div>
+                <div class="interest-card fade-in">
+                    <div class="interest-icon">🔐</div>
+                    <h3>Data & Information Security</h3>
+                    <p>Committed to studying secure coding methodologies, cryptographic frameworks, threat vulnerability mitigation, and database access authorization models.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section section-alt" id="contact">
+        <div class="container">
+            <h2 class="section-title fade-in">Get In <span class="highlight">Touch</span></h2>
+            <p class="section-subtitle fade-in">Interested in collaboration, opportunities, or just want to connect? Reach out.</p>
+            <div class="contact-grid">
+                <a href="mailto:r004dev@gmail.com" class="contact-card fade-in">
+                    <div class="contact-icon">✉️</div>
+                    <h3>Email</h3>
+                    <p>r004dev@gmail.com</p>
+                </a>
+                <a href="tel:+9779818243282" class="contact-card fade-in">
+                    <div class="contact-icon">📱</div>
+                    <h3>Phone</h3>
+                    <p>+977 981-8243282</p>
+                </a>
+                <a href="https://github.com/NOBODY-VI" target="_blank" class="contact-card fade-in">
+                    <div class="contact-icon">💻</div>
+                    <h3>GitHub</h3>
+                    <p>NOBODY-VI</p>
+                </a>
+                <div class="contact-card fade-in">
+                    <div class="contact-icon">📍</div>
+                    <h3>Location</h3>
+                    <p>Teku, Kathmandu, Nepal</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Rahul Dev. Built with passion for AI.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
