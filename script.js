@@ -78,10 +78,10 @@ window.addEventListener('resize', () => {
 // ===== Typing Effect =====
 const titles = [
     'AI/ML Engineer.',
-    'Computer Vision Enthusiast.',
+    'Computer Vision Specialist.',
     'Database Architect.',
-    'Problem Solver.',
-    'Deep Learning Developer.'
+    'ML Systems Designer.',
+    'Deep Learning Researcher.'
 ];
 
 let titleIndex = 0;
