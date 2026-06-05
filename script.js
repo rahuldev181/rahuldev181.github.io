@@ -75,7 +75,7 @@ window.addEventListener('resize', () => {
     createParticles();
 });
 
-// ===== Typing Effect =====
+// ===== Typing Effect with Text Scramble =====
 const titles = [
     'AI/ML Engineer.',
     'Computer Vision Specialist.',
@@ -84,10 +84,41 @@ const titles = [
     'Deep Learning Researcher.'
 ];
 
+const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()';
+
 let titleIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
 let typingSpeed = 100;
+let scrambleActive = false;
+
+function getRandomChar() {
+    return characters[Math.floor(Math.random() * characters.length)];
+}
+
+function scrambleText(text, iterations = 10) {
+    const typingElement = document.getElementById('typing-text');
+    let currentIteration = 0;
+    
+    const scrambleInterval = setInterval(() => {
+        let scrambled = '';
+        for (let i = 0; i < text.length; i++) {
+            if (i < text.length - (iterations - currentIteration)) {
+                scrambled += text[i];
+            } else {
+                scrambled += getRandomChar();
+            }
+        }
+        typingElement.textContent = scrambled;
+        currentIteration++;
+        
+        if (currentIteration > iterations) {
+            clearInterval(scrambleInterval);
+            typingElement.textContent = text;
+            scrambleActive = false;
+        }
+    }, 50);
+}
 
 function typeText() {
     const currentTitle = titles[titleIndex];
@@ -116,6 +147,18 @@ function typeText() {
 }
 
 typeText();
+
+// ===== Text Scramble on Hover =====
+const heroTitle = document.querySelector('.hero-title');
+if (heroTitle) {
+    heroTitle.addEventListener('mouseenter', () => {
+        if (!scrambleActive) {
+            scrambleActive = true;
+            const currentTitle = titles[titleIndex];
+            scrambleText(currentTitle, 15);
+        }
+    });
+}
 
 // ===== Navbar Scroll Effect =====
 const navbar = document.getElementById('navbar');
