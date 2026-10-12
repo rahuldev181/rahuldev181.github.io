@@ -1,46 +1,38 @@
-# Rahul Dev — Portfolio
+# <p align="center">RAHUL DEV</p>
 
-A responsive personal portfolio presented as a **research lab and model-monitoring dashboard**. The site is plain HTML, CSS, and JavaScript, so it can be hosted directly by GitHub Pages.
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Consolas&size=22&duration=3000&pause=1000&color=FFFFFF&center=true&vCenter=true&width=435&lines=Aspiring+AI%2FML+Developer;Computer+Engineering+Student;Tech+Enthusiast" alt="Typing SVG" />
+</p>
 
-## Included
+---
 
-- Dark technical interface using `#0A0C10`, elevated instrument panels, cyan/blue data accents, and JetBrains Mono metadata.
-- Responsive sticky navigation with mobile drawer, active section state, smooth anchors, scroll-progress bar, and back-to-top link.
-- GPU-friendly neural-network canvas background that reacts to the pointer and disables under `prefers-reduced-motion`.
-- Accessible reveal motion, visible focus states, semantic landmarks, and ARIA live regions.
-- Skills panels with segmented proficiency meters, project metric readouts, education pipeline, GitHub stats, and copy-to-clipboard email control.
-- Contact form that forwards visitor messages to the configured inbox through FormSubmit.
+### 💻 About Me
 
-## Contact form activation
+I am a **4th-year Computer Technology student** at Kantipur Engineering College, Kathmandu. I am a dedicated developer focusing on building intelligent systems and exploring the intersections of Machine Learning, Computer Vision, and Database Architecture.
 
-The form in `index.html` uses this action:
+- 🔭 I’m currently working on **AI-driven diagnostic systems**.
+- 🌱 I’m currently learning **Advanced Deep Learning architectures and Cloud Deployment**.
+- 💬 Ask me about **Python, SQL, or Computer Vision**.
+- 📫 How to reach me: **r004dev@gmail.com**
 
-```html
-<form action="https://formsubmit.co/r004dev@gmail.com" method="POST">
+---
+
+### 🛠️ Technical Skills
+
+```text
+Strong:         Python, NumPy, Pandas, Scripting & Automation
+Advanced:       Jupyter, Colab
+Intermediate:   TensorFlow, Keras, OpenCV, C++, Git, GitHub
+Familiar:       SQL, MySQL, Database Architecture
 ```
 
-FormSubmit requires a one-time email activation. After the first visitor submits the form, FormSubmit sends an activation message to `r004dev@gmail.com`. Open that message and confirm the address. After activation, future submissions are forwarded to the inbox.
+---
 
-The form uses `_next` to return visitors to the portfolio after submission. If the site URL changes, update the hidden `_next` value in `index.html`:
-
-```html
-<input type="hidden" name="_next" value="https://rahuldev181.github.io/?sent=1#contact">
-```
-
-No SMTP password or API key is stored in this public repository. For higher-volume or transactional email, replace FormSubmit with a server-side provider such as Resend or Formspree and keep its secret in the deployment environment.
-
-## Local preview
-
-From this directory, run any static server, for example:
-
-```bash
-python3 -m http.server 8000
-```
-
-Then open `http://localhost:8000`.
-
-## Files
-
-- `index.html` — semantic portfolio content and contact form.
-- `style.css` — design tokens, responsive layout, instrument panels, and motion rules.
-- `script.js` — navigation, reveal effects, canvas network, copy-email action, and form feedback.
+<p align="center">
+  <a href="https://linkedin.com/in/rahuldev181">
+    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+  </a>
+  <a href="https://rahuldev181.github.io">
+    <img src="https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Portfolio" />
+  </a>
+</p>
