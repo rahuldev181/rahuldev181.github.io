@@ -1,257 +1,63 @@
-// ===== Neural Network Background Animation =====
-const canvas = document.getElementById('neural-bg');
-const ctx = canvas.getContext('2d');
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-let particles = [];
-let animationId;
-
-function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
-
-function createParticles() {
-    particles = [];
-    const count = Math.min(80, Math.floor((canvas.width * canvas.height) / 15000));
-    for (let i = 0; i < count; i++) {
-        particles.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            vx: (Math.random() - 0.5) * 0.5,
-            vy: (Math.random() - 0.5) * 0.5,
-            radius: Math.random() * 2 + 1,
-            opacity: Math.random() * 0.5 + 0.2
-        });
-    }
-}
-
-function drawParticles() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // Draw connections
-    for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-            const dx = particles[i].x - particles[j].x;
-            const dy = particles[i].y - particles[j].y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-
-            if (distance < 150) {
-                const opacity = (1 - distance / 150) * 0.15;
-                ctx.beginPath();
-                ctx.moveTo(particles[i].x, particles[i].y);
-                ctx.lineTo(particles[j].x, particles[j].y);
-                ctx.strokeStyle = `rgba(0, 212, 255, ${opacity})`;
-                ctx.lineWidth = 0.5;
-                ctx.stroke();
-            }
-        }
-    }
-
-    // Draw particles
-    particles.forEach(p => {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(0, 212, 255, ${p.opacity})`;
-        ctx.fill();
-
-        // Update position
-        p.x += p.vx;
-        p.y += p.vy;
-
-        // Bounce off edges
-        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-    });
-
-    animationId = requestAnimationFrame(drawParticles);
-}
-
-resizeCanvas();
-createParticles();
-drawParticles();
-
-window.addEventListener('resize', () => {
-    resizeCanvas();
-    createParticles();
+const navToggle = document.querySelector('#nav-toggle');
+const navLinks = document.querySelector('#nav-links');
+navToggle?.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', String(open));
+  navToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
 });
+navLinks?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+  navLinks.classList.remove('open');
+  navToggle?.setAttribute('aria-expanded', 'false');
+}));
 
-// ===== Typing Effect with Text Scramble =====
-const titles = [
-    'AI/ML Engineer.',
-    'Computer Vision Specialist.',
-    'Database Architect.',
-    'ML Systems Designer.',
-    'Deep Learning Researcher.'
-];
-
-const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()';
-
-let titleIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-let typingSpeed = 100;
-let scrambleActive = false;
-
-function getRandomChar() {
-    return characters[Math.floor(Math.random() * characters.length)];
-}
-
-function scrambleText(text, iterations = 10) {
-    const typingElement = document.getElementById('typing-text');
-    let currentIteration = 0;
-    
-    const scrambleInterval = setInterval(() => {
-        let scrambled = '';
-        for (let i = 0; i < text.length; i++) {
-            if (i < text.length - (iterations - currentIteration)) {
-                scrambled += text[i];
-            } else {
-                scrambled += getRandomChar();
-            }
-        }
-        typingElement.textContent = scrambled;
-        currentIteration++;
-        
-        if (currentIteration > iterations) {
-            clearInterval(scrambleInterval);
-            typingElement.textContent = text;
-            scrambleActive = false;
-        }
-    }, 50);
-}
-
-function typeText() {
-    const currentTitle = titles[titleIndex];
-    const typingElement = document.getElementById('typing-text');
-
-    if (isDeleting) {
-        typingElement.textContent = currentTitle.substring(0, charIndex - 1);
-        charIndex--;
-        typingSpeed = 50;
-    } else {
-        typingElement.textContent = currentTitle.substring(0, charIndex + 1);
-        charIndex++;
-        typingSpeed = 100;
-    }
-
-    if (!isDeleting && charIndex === currentTitle.length) {
-        typingSpeed = 2000;
-        isDeleting = true;
-    } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        titleIndex = (titleIndex + 1) % titles.length;
-        typingSpeed = 500;
-    }
-
-    setTimeout(typeText, typingSpeed);
-}
-
-typeText();
-
-// ===== Text Scramble on Hover =====
-const heroTitle = document.querySelector('.hero-title');
-if (heroTitle) {
-    heroTitle.addEventListener('mouseenter', () => {
-        if (!scrambleActive) {
-            scrambleActive = true;
-            const currentTitle = titles[titleIndex];
-            scrambleText(currentTitle, 15);
-        }
-    });
-}
-
-// ===== Navbar Scroll Effect =====
-const navbar = document.getElementById('navbar');
-
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
-
-// ===== Mobile Navigation Toggle =====
-const navToggle = document.getElementById('nav-toggle');
-const navLinks = document.getElementById('nav-links');
-
-navToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-});
-
-// Close mobile nav on link click
-navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-    });
-});
-
-// ===== Scroll Animations (Intersection Observer) =====
-const fadeElements = document.querySelectorAll('.fade-in');
-
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+const progress = document.querySelector('#scroll-progress');
+const sections = [...document.querySelectorAll('main section[id]')];
+const updateScrollUI = () => {
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  if (progress) progress.style.width = `${max > 0 ? (window.scrollY / max) * 100 : 0}%`;
+  let active = '';
+  sections.forEach((section) => { if (window.scrollY >= section.offsetTop - 130) active = section.id; });
+  navLinks?.querySelectorAll('a').forEach((link) => link.classList.toggle('active', link.getAttribute('href') === `#${active}`));
 };
+window.addEventListener('scroll', updateScrollUI, { passive: true });
+updateScrollUI();
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-            setTimeout(() => {
-                entry.target.classList.add('visible');
-            }, index * 100);
-            observer.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
+const revealItems = document.querySelectorAll('.reveal');
+if (prefersReducedMotion || !('IntersectionObserver' in window)) revealItems.forEach((item) => item.classList.add('visible'));
+else {
+  const observer = new IntersectionObserver((entries, instance) => {
+    entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add('visible'); instance.unobserve(entry.target); } });
+  }, { threshold: .12, rootMargin: '0px 0px -40px' });
+  revealItems.forEach((item) => observer.observe(item));
+}
 
-fadeElements.forEach(el => observer.observe(el));
-
-// ===== Skill Bars Animation =====
-const skillBars = document.querySelectorAll('.skill-progress');
-
-const skillObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const width = entry.target.getAttribute('data-width');
-            entry.target.style.width = width + '%';
-            skillObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
-
-skillBars.forEach(bar => skillObserver.observe(bar));
-
-// ===== Smooth Scroll for Navigation Links =====
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
+const copyButton = document.querySelector('#copy-email');
+const copyFeedback = document.querySelector('#copy-feedback');
+copyButton?.addEventListener('click', async () => {
+  const email = copyButton.dataset.email;
+  try {
+    await navigator.clipboard.writeText(email);
+    copyFeedback.textContent = 'Email copied to clipboard.';
+  } catch { copyFeedback.textContent = email; }
+  window.setTimeout(() => { copyFeedback.textContent = ''; }, 2600);
 });
 
-// ===== Active Navigation Highlight =====
-const sections = document.querySelectorAll('section[id]');
-
-window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
-        if (window.scrollY >= sectionTop) {
-            current = section.getAttribute('id');
-        }
-    });
-
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.style.color = '';
-        if (link.getAttribute('href') === '#' + current) {
-            link.style.color = '#00d4ff';
-        }
-    });
+const form = document.querySelector('#contact-form');
+const formStatus = document.querySelector('#form-status');
+form?.addEventListener('submit', () => {
+  formStatus.textContent = 'Sending message…';
+  const submit = form.querySelector('button[type="submit"]');
+  if (submit) { submit.disabled = true; submit.textContent = 'Sending…'; }
 });
+if (new URLSearchParams(window.location.search).get('sent') === '1' && formStatus) formStatus.textContent = 'Message sent. Thank you for getting in touch.';
+
+const canvas = document.querySelector('#neural-bg');
+const context = canvas?.getContext('2d');
+let particles = [];
+let pointer = { x: -1000, y: -1000 };
+const resizeCanvas = () => { if (!canvas) return; canvas.width = window.innerWidth * devicePixelRatio; canvas.height = window.innerHeight * devicePixelRatio; canvas.style.width = `${window.innerWidth}px`; canvas.style.height = `${window.innerHeight}px`; context.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0); };
+const seedParticles = () => { particles = Array.from({ length: Math.min(58, Math.floor(window.innerWidth * window.innerHeight / 22000)) }, () => ({ x: Math.random() * window.innerWidth, y: Math.random() * window.innerHeight, vx: (Math.random() - .5) * .2, vy: (Math.random() - .5) * .2 })); };
+const drawNetwork = () => { if (!context || prefersReducedMotion) return; context.clearRect(0, 0, window.innerWidth, window.innerHeight); particles.forEach((p, i) => { p.x += p.vx; p.y += p.vy; if (p.x < 0 || p.x > window.innerWidth) p.vx *= -1; if (p.y < 0 || p.y > window.innerHeight) p.vy *= -1; const near = Math.hypot(p.x - pointer.x, p.y - pointer.y); context.fillStyle = `rgba(34,211,238,${near < 150 ? .72 : .22})`; context.fillRect(p.x, p.y, 2, 2); for (let j = i + 1; j < particles.length; j += 1) { const q = particles[j]; const distance = Math.hypot(p.x - q.x, p.y - q.y); if (distance < 125) { const boost = near < 150 ? .18 : 0; context.strokeStyle = `rgba(59,130,246,${Math.max(.02, .12 - distance / 1300 + boost)})`; context.beginPath(); context.moveTo(p.x, p.y); context.lineTo(q.x, q.y); context.stroke(); } } }); requestAnimationFrame(drawNetwork); };
+if (canvas && context && !prefersReducedMotion) { resizeCanvas(); seedParticles(); window.addEventListener('resize', () => { resizeCanvas(); seedParticles(); }); window.addEventListener('pointermove', (event) => { pointer = { x: event.clientX, y: event.clientY }; }, { passive: true }); drawNetwork(); }
